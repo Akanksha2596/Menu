@@ -91,8 +91,8 @@ window.addEventListener("DOMContentLoaded", function () {
   displayMenuButtons();
  });
 
-  function displayMenuItem(menuItems){
-  let displayMenu = menuItems.map(function(item){
+  function displayMenuItem (menuItems) {
+  let displayMenu = menuItems.map(function (item) {
     console.log(item);
     return `<article class="menu-item">
        <img src= ${item.img} class="photo" alt=${item.title}>
@@ -108,11 +108,10 @@ window.addEventListener("DOMContentLoaded", function () {
    </article>`;
  });
  displayMenu = displayMenu.join("");
- 
  sectionCenter.innerHTML = displayMenu;
 }
 
-function displayMenuButtons() {
+function displayMenuButtons () {
   const categories = menu.reduce(
     function (values,item){
       if(!values.includes(item.category)){
@@ -122,9 +121,10 @@ function displayMenuButtons() {
     },
     ["all"]
   );
-  const categoryBtns = categories.map(function(category){
+  const categoryBtns = categories.map(function (category) {
         return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`
-  }).join("");
+  })
+  .join("");
   container.innerHTML = categoryBtns;
   const filterBtns = container.querySelectorAll(".filter-btn");
   // filter items
@@ -140,8 +140,8 @@ function displayMenuButtons() {
       });
       if (category === "all") {
         displayMenuItem(menu);
-        }else{
-        displayMenuItem(menuCategory);
+        } else {
+          displayMenuItem(menuCategory);
       }
     });
   });
